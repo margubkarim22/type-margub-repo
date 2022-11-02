@@ -103,7 +103,7 @@ const start = () => {
   // If already started, do not start again
   if (startTime) return;
 
-  let count = 5;
+  let count = 3;
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
@@ -120,7 +120,7 @@ const start = () => {
       clearInterval(startCountdown);
       startTime = new Date().getTime();
     }
-    count--;
+    count --;
   }, 1000);
 };
 
@@ -133,8 +133,8 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime =  new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
+  const timeSpent = parseInt((currentTime - startTime) / 1000);
   
 
-  document.getElementById("show-time").innerHTML = parseInt(`${startTime ? timeSpent : 0} seconds`);
+  document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
 }, 1000);
